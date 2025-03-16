@@ -18,4 +18,5 @@
 3. Дата бүтэц болон алгоритмыг сурах
 4. Дадлагажих (practice)
 5. Өдөр болгон суралцах
+
    [DSA] <https://www.geeksforgeeks.org/dsa-tutorial-learn-data-structures-and-algorithms/>
