@@ -1,4 +1,4 @@
-import { f30AllDivisors, f31AllDivisors } from "./solution-u";
+import { f30AllDivisors, f31AllDivisors, f32AllDivisors } from "./solution-u";
 
 describe("all divisors", () => {
   it("SHould native implementation work", () => {
@@ -6,5 +6,8 @@ describe("all divisors", () => {
   });
   it("Should optimized implementation work", () => {
     f31AllDivisors(16);
+  });
+  it("Should sorted divisors work", () => {
+    f32AllDivisors(6);
   });
 });

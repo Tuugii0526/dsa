@@ -23,6 +23,16 @@ export function f31AllDivisors(n: number): number[] {
   console.log("divisors:", divisors);
   return divisors;
 }
-export function f32AllDivisors(n: number): number[] {
-  return [];
+export function f32AllDivisors(n: number) {
+  let i;
+  for (i = 1; i * i < n; i++) {
+    if (n % i == 0) {
+      console.log(i);
+    }
+  }
+  for (; i > 1; i--) {
+    if (n % i == 0) {
+      console.log(n / i);
+    }
+  }
 }
