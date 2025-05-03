@@ -1,0 +1,1 @@
+In this program we will learn to create a power set of a given set by using bitwise operators. The method works by using the set bit to indicate the presence of a particular element , and running a loop from 0 to 2n-1 (where n is the number of elements ) which will cover all possible subsets of the given set.

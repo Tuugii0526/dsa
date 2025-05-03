@@ -1,0 +1,1 @@
+In this tutorial we will learn to count the number of set bits ( 1's ) in the binary representation of any number. We will also be taking a deep dive into Brian Kerningam's Algorithm and the Lookup Table method for the same.
