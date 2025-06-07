@@ -4,5 +4,6 @@ describe("Josephus", () => {
   it("test", () => {
     const soft0410 = new Soft0410();
     console.log(soft0410.solution(3, 2));
+    console.log(soft0410.usingWhile(17, 16));
   });
 });

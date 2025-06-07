@@ -5,6 +5,8 @@ describe("011-iterative-power", () => {
     console.log(f41IterativePower(3, 0));
   });
   it("test2", () => {
-    console.log(f42IterativePowerOptimized(3, 2));
+    console.time("hi");
+    expect(f42IterativePowerOptimized(3, 2)).toBe(9);
+    console.timeEnd("hi");
   });
 });

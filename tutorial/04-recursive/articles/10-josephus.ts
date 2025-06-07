@@ -13,6 +13,29 @@ export class Soft0410 {
     const newNumbers = [...partTwo, ...partOne];
     return this.jos(newNumbers, n - 1, k);
   }
+  usingWhile(n: number, k: number) {
+    if (n == 1) return 1;
+    let numbers = Array.from({ length: n }, (_: any, i: number) => i);
+    while (n > 1) {
+      let index;
+      console.log("n:", n);
+
+      if (k > n) {
+        index = (k % n) - 1;
+      } else {
+        index = k - 1;
+      }
+
+      const partOne = numbers.slice(0, index);
+      const partTwo = numbers.slice(index + 1, numbers.length);
+      console.log("partONE;", partOne);
+      console.log("partTwo:", partTwo);
+
+      numbers = [...partTwo, ...partOne];
+      n--;
+    }
+    return numbers[0] + 1;
+  }
   getZeroToN(limit: number) {
     return Array.from({ length: limit }, (_: any, i: number) => i);
   }
@@ -56,5 +79,15 @@ export class Soft0410 {
   solution(n: number, k: number): number {
     if (n == 1) return 1;
     return ((this.solution(n - 1, k) + (k % n) - 1) % n) + 1;
+  }
+  /**
+   * @param n
+   * @param k
+   * @returns
+   *
+   * 1. Асуудалаа ойлгоё .
+   */
+  solutionOne(n: number, k: number): number {
+    return 0;
   }
 }
