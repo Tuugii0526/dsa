@@ -1,4 +1,4 @@
-class SoftP050303 {
+class SoftP050302 {
   public static solution(arr: number[]): number {
     const valueIndexArray = [];
     for (let i = 0; i < arr.length; i++) {
@@ -14,4 +14,4 @@ class SoftP050303 {
     return max;
   }
 }
-console.log(SoftP050303.solution([34, 8, 10, 3, 2, 80, 30, 33, 1]));
+console.log(SoftP050302.solution([34, 8, 10, 3, 2, 80, 30, 33, 1]));
