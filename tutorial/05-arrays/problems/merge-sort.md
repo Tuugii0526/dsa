@@ -90,4 +90,4 @@ temp2[m]=arr[mid+m+1];
     merge нь шийдлийг нэгтгэх үүрэгтэй .
     ## Merge Sort Visualization
 
-![Merge Sort Example](public/IMG_0815.HEIC)
+![Merge Sort Example](public/visual-merge-sort.jpeg)
