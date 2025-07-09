@@ -1,5 +1,8 @@
-class Soft05p12 {
-     public void sort (int [] arr,int start,int end){
+
+import java.util.Arrays;
+
+class Soft05p11 {
+    public void sort (int [] arr,int start,int end){
         if(start<end){
             int mid= start+(end-start)/2;
             this.sort(arr,start,mid);
@@ -42,22 +45,38 @@ class Soft05p12 {
         current++;
         }
     }
-    public int missingNumber(int[] arr) {
+    public void rearrange(int arr[]) {
         // code here
         int length=arr.length;
-        int smallPositive=1;
-        this.sort(arr,0,length-1);
-        for (int i=0;i<length;i++){
-            if(arr[i]==smallPositive)
-            {
-                smallPositive++;
+        int minIndex=0;
+        int maxIndex=length-1;
+        this.sort(arr,0,arr.length-1);
+        int M = arr[maxIndex]+1;
+
+        System.out.println("sorted:"+Arrays.toString(arr));
+        for(int i=0;i<length;i++){
+            System.out.println("index:"+i);
+            if ((i & 1)==0){
+                System.out.println("initial element:"+arr[maxIndex]%M);
+                arr[i]+= (arr[maxIndex]%M)*M;
+                maxIndex--;
+            }
+            else {
+                System.out.println("initial element:"+arr[minIndex]%M);
+                arr[i]+=(arr[minIndex]%M)*M;
+                minIndex++;
             }
         }
-        return smallPositive ;
+        for (int i=0;i<length;i++){
+            arr[i]=arr[i]/M;
+        }
+        
+        
     }
-    public static void main(String[] args) {
-        Soft05p12 soft=new Soft05p12();
-        int []arr= new int[]{2, -3, 4, 1, 1, 7};
-        System.out.println(soft.missingNumber(arr));
+     public static void main(String[] args) {
+        Soft05p11 soft=new Soft05p11();
+        int [] arr=new int[]{890 ,289 ,483 ,519 ,550 ,447 ,946 ,957 ,92, 783};
+        soft.rearrange(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }

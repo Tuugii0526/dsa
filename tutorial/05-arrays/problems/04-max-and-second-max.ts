@@ -15,3 +15,4 @@ class Soft05p04 {
     return [max, secMax];
   }
 }
+console.log("hi");

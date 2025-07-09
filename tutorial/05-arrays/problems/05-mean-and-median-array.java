@@ -1,6 +1,8 @@
 
 import java.util.Arrays;
 
+
+
 class Solution {
     // public int mean(int[] arr) {
         
@@ -8,51 +10,53 @@ class Solution {
 
     // public int median(int[] arr) {
     // }
-    public   int [] merge(int[] arr1,int[] arr2){
-        
-int i=0,j=0,arr1Length=arr1.length,arr2Length=arr2.length,lastIndex=0;
-int []result = new int[ arr1Length+arr2Length];
-while (i < arr1Length && j < arr2Length){ 
-if (arr1[i]< arr2[j]) { 
-result[lastIndex]= arr2[j];
-j++; 
-lastIndex++;
-}
-else {
-    result[lastIndex]=arr1[i];
-    i++;
-    lastIndex++;
-}
-}
-if (i< arr1Length){
-  for(int m=i;m<arr1Length;m++){
-    result[lastIndex]=arr1[m];
-    lastIndex++;
-  }
-}
-else { 
-  for(int m=j;m<arr2Length;m++){
-    result[lastIndex]=arr2[ m];
-    lastIndex++;
-  }
-}
-return result;
+    public void sort(int [] arr,int left, int right){
+       if(left < right){
+           int mid= left+ (right-left)/2;
+           this.sort(arr,left,mid);
+           this.sort(arr,mid+1,right);
+           this.merge(arr,left,mid,right);
+       }
+         
     }
-    public int []mergeSort(int [ ]arr){
-  if (arr.length==1){
-    return arr;
-  }  
-    int length=arr.length;
-int mid= length /2;
-        int[] part1 = Arrays.copyOfRange(arr, 0, mid); 
-int [] part2=  Arrays.copyOfRange(arr, mid, length); 
-  int [] arr1= this.mergeSort(part1);
-  int [] arr2= this.mergeSort(part2);
-  return this.merge(arr1,arr2);
+    public void merge(int [] arr,int left, int mid ,int right){
+        int j=0,i=0,current=left;
+        int temp1Length=mid-left+1;
+        int temp2Length=right-mid;
+        int [] temp1=new int[temp1Length];
+        int[] temp2= new int[temp2Length];
+        for(int m=0;m<temp1Length;m++){
+            temp1[m]=arr[left+m];
+        }
+        for(int m=0;m<temp2Length;m++){
+            temp2[m]=arr[mid+1+m];
+        }
+        while(i < temp1Length && j < temp2Length){
+            if (temp1[i]<temp2[j]){
+                arr[current]=temp1[i];
+                i++;
+            }
+            else {
+                arr[current]=temp2[j];
+                j++;
+            }
+            current++;
+        }
+        while(i<temp1Length){
+            arr[current]= temp1[i];
+            i++;
+            current++;
+        }
+         while(i<temp2Length){
+            arr[current]= temp2[j];
+            j++;
+            current++;
+        }
     }
     public static void main(String[] args) {
         Solution soft= new Solution();
         int []arr1=new int[]{8,3,1,2,9,934,34,25,2345,11345,145236,235};
-System.out.println(Arrays.toString(soft.mergeSort(arr1)));
+        soft.sort(arr1,0,arr1.length-1);
+System.out.println(Arrays.toString(arr1));
     }
 }
