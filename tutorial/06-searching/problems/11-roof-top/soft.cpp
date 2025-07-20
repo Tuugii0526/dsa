@@ -1,4 +1,5 @@
 #include<vector>
+#include<iostream>
 using namespace std;
 class Solution {
     public:
@@ -10,6 +11,8 @@ class Solution {
           int mx=0;
           int consecutiveSteps=0;
           for(int i=1;i<length;i++){
+            cout << arr[i];
+            
               if(arr[i-1]<arr[i])
               {
                   consecutiveSteps++;
@@ -19,8 +22,16 @@ class Solution {
                   mx=max(mx,consecutiveSteps);
                   consecutiveSteps=0;
               }
+              cout << "steps:"<< consecutiveSteps << " ";
+              cout << "max:"<< mx<< endl;
           }
-          return mx;
+          return max(mx,consecutiveSteps);
       }
       
   };
+  int main(){
+   vector<int> vec={10 ,11, 2, 15, 7, 11, 16, 19};
+   Solution soft;
+   cout << soft.maxStep(vec);
+    return 0;
+  }
